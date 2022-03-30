@@ -34,11 +34,13 @@ export const appStyles=StyleSheet.create({
   },
   banner_image:{
     height:Dimensions.get('window').height/5,
-    width:Dimensions.get('window').width /2,
+    width:Dimensions.get('window').width/2,
+    
   },
   headerText:{
     fontWeight:'bold',
-    fontSize:50,
+    fontSize:70,
+    color:'gray',
 
   },
 

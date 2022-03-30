@@ -3,10 +3,41 @@ import { View,SafeAreaView,Text,FlatList,Image,StyleSheet,ScrollView ,Dimensions
 import news_data from './news_data.json';
 import {appStyles as styles } from "./styles";
 import news_banner_data from './news_banner_data.json';
+import  AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 function App(){
-    const renderNews=({item})=> <NewsCard news={item} />;    
+  
+
+
+
+  const storeData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value)
+      await AsyncStorage.setItem('@storage_Key', jsonValue)
+    } catch (e) {
+      // saving error
+    }
+  }
+  
+const getData = async () => {
+  try {
+    const value = await AsyncStorage.getItem('@storage_Key')
+    if(value !== null) {
+      // value previously stored
+    }
+  } catch(e) {
+    // error reading value
+  }
+}
+
+window.localStorage.setItem("key","value");
+window.localStorage.getItem("key");
+   
+    function renderNews({ item }) {
+    return <NewsCard news={item} />;
+  }    
     return(
         <SafeAreaView style={styles.container}>
          <Text style={styles.headerText}>News</Text>
