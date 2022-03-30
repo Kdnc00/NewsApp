@@ -32,8 +32,8 @@ const getData = async () => {
   }
 }
 
-window.localStorage.setItem("key","value");
-window.localStorage.getItem("key");
+//'window'.localStorage.setItem("key","value");
+//'window'.localStorage.getItem("key");
    
     function renderNews({ item }) {
     return <NewsCard news={item} />;
